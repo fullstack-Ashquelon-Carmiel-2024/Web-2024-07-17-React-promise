@@ -10,7 +10,7 @@ export default function UserList({users, children}) {
   // Promise: or is pending or is resolved - success (then) or is an error (catch)
   useEffect(() => {
     fetch(picUrl)
-      .then(response => response.json())
+      .then(response => response.json()) // create object from the given JSON
       .then(response => {
         console.log(response);
         setRandUserPics(response.results.map(el => el.picture.large))
@@ -21,7 +21,7 @@ export default function UserList({users, children}) {
 
   const getRandPic = () => randUserPics.length > 0 ?
                                 randUserPics[Math.floor(Math.random()*randUserPics.length)] : '';
-
+console.log(`randUserPics: \n`, randUserPics)
   return (
     // col-12 - 12 columns for the narowest screen (xs - extra small)
     // col-sm-6 - starting from the small screen - take the half of bootstrap
